@@ -1,0 +1,98 @@
+body{
+    font-family: times new roman;
+    padding: 0px;
+    margin: 0px;
+}
+
+#navigation{
+    display: flex;
+    align-items: baseline;
+}
+
+.row{
+    margin-left: 0px;
+    margin-right: 0px;
+}
+
+#section1{
+    text-align: justify;
+}
+
+.col-sm-12 .panel-group .panel .text-center{
+    margin-top: 0px;
+}
+
+#article_links{
+    list-style-type: none;
+}
+
+#contact_us{
+    margin: 0%;
+    /* width: 100%; */
+    background: url("../images/phone_headphones_player_106009_1280x720.jpg");
+    /* background-repeat: no-repeat; */
+    background-attachment: fixed;
+    padding: 35px;
+    padding-right: 0px;
+    padding-left: 0px;
+}
+
+#contact_us .col-sm-4{
+    display: flex;
+    color: black;
+    flex-direction: column;
+    justify-content: center;
+    align-content: baseline;
+    text-align: justify;
+    padding: 10px;
+    margin: 5px;
+    width: 420px;
+}
+
+#contact_us .col-sm-4 .fa-facebook-square{
+    color: dodgerblue;
+}
+
+#contact_us .col-sm-4 .fa-envelope{
+    color: rgba(128, 128, 128, 0.5);
+}
+
+#contact_us .col-sm-4 .fa-instagram{
+    color: red;
+}
+
+#about_us{
+    padding: 0px;
+    margin: 0px;
+}
+
+#arrow{
+    padding: 0px;
+    border: 0px solid black;
+}
+
+
+footer{
+    /* color: burlywood; */
+    background-color: #4dd2ff;
+    margin: 0px;
+    padding: 6px 10px;
+}
+
+@media screen and (max-width:438px){
+    #article_links{
+        font-size: 10px;
+    }
+    footer{
+        width: 100%; 
+        color:green;
+    }
+
+    #contact_us .col-sm-4{
+        width: 100%;; 
+    }
+
+    .col-sm-6 .panel-group{
+        margin-top: 10px;
+    }
+}

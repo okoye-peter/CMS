@@ -1,0 +1,23 @@
+body{
+    font-family: times new roman;
+    padding: 0px;
+    margin: 0px;
+}
+
+#navigation{
+    display: flex;
+    align-items: baseline;
+}
+
+.row{
+    margin-left: 0px;
+    margin-right: 0px;
+}
+
+#section1{
+    text-align: justify;
+}
+
+#article_links{
+    list-style-type: none;
+}

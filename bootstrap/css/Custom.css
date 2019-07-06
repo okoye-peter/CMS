@@ -1,0 +1,74 @@
+﻿.center 
+{
+    text-align:center;
+}
+.centerpage
+{
+
+    width:-150px; 
+    height:300px;
+    position:absolute;
+    
+   
+    top:40px;
+    bottom:0;
+    left:0;
+    right:0;
+    
+    margin:auto;
+}
+  .space-vert
+  {
+      margin-top:50px;
+  } 
+  
+  
+  .secondcenterpage
+{
+
+    width:-150px; 
+    height:10px;
+    position:absolute;
+    
+   
+    top:890px;
+    bottom:500px;
+    left:0;
+    right:0;
+    
+    margin:auto;
+}
+  .space-vert
+  {
+      margin-top:50px;
+  } 
+  
+  .footer
+  {
+      
+    width:auto;
+    height:auto;
+    position:absolute;
+    
+   
+    top:1000px;
+    bottom:0;
+    left:-200px;
+    right:0;
+    
+    margin:auto;
+  }
+  
+  body
+  {
+      background-color:#fffff;
+      padding-top:50px;
+  }
+  
+  .dlcffont
+ {
+     
+     font-family:Le Griffe;
+     font-size:50px;
+     
+ }

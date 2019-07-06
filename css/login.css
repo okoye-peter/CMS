@@ -1,0 +1,133 @@
+body{
+    font-family: times new roman;
+    padding: 0px;
+    margin: 0px;
+}
+
+#navigation{
+    display: flex;
+    align-items: baseline;
+}
+
+.row{
+    margin-left: 0px;
+    margin-right: 0px;
+}
+
+.row .container .col-sm-6{
+    width: 500px;
+    padding: 35px;
+    margin: 35px 10px;
+}
+
+.row .container .col-sm-6 .form-horizontal{
+    width: 400px;
+    margin: auto;
+    padding: 50px 25px;
+    background-color: white;
+    box-shadow: 0 10px 16px 0 rgba(0, 0, 0, 0.2);
+}
+
+.row .container .col-sm-6 .form-horizontal small{
+    color: #aa0000;
+}
+
+.row .container .col-sm-6 .form-horizontal marquee{
+    width: 100%;
+    margin: 15px 15px;
+    color: rgb(16, 177, 206);
+    font-size: 20px;
+}
+
+.row .container .col-sm-6 .form-horizontal img{
+    width: 100%;
+    margin: auto;
+}
+
+.row .container .col-sm-6 .card{
+    width:100%;
+    max-width: 400px;
+    margin: auto;
+    box-shadow: 0 10px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19) !important;
+}
+
+.row .container .col-sm-6 .card img{
+    width: 100%;
+}
+
+.row .container .col-sm-6 .card .cardcontainer{
+    padding: 10px 40px;
+    font-size: 20px;
+    text-align: center;
+}
+
+#contact_us{
+    margin: 0%;
+    /* width: 100%; */
+    background: url("../images/phone_headphones_player_106009_1280x720.jpg");
+    /* background-repeat: no-repeat; */
+    background-attachment: fixed;
+    padding: 35px;
+    padding-right: 0px;
+    padding-left: 0px;
+}
+
+#contact_us .col-sm-4{
+    display: flex;
+    color: black;
+    flex-direction: column;
+    justify-content: center;
+    align-content: baseline;
+    text-align: justify;
+    padding: 10px;
+    margin: 5px;
+    width: 420px;
+}
+
+#contact_us .col-sm-4 .fa-facebook-square{
+    color: dodgerblue;
+}
+
+#contact_us .col-sm-4 .fa-envelope{
+    color: rgba(128, 128, 128, 0.5);
+}
+
+#contact_us .col-sm-4 .fa-instagram{
+    color: red;
+}
+
+#about_us{
+    padding: 0px;
+    margin: 0px;
+}
+
+#arrow{
+    padding: 0px;
+    border: 0px solid black;
+}
+
+footer{
+    /* color: burlywood; */
+    background-color: #4dd2ff;
+    margin: 0px;
+    padding: 6px 10px;
+}
+
+@media screen and (max-width:438px){
+    .row .container .col-sm-6{
+        width: 100%;
+    }
+
+    .row .container .col-sm-6 .form-horizontal{
+        width: 100%;
+    }
+
+    footer{
+        width: 100%; 
+        color:green;
+    }
+
+    #contact_us .col-sm-4{
+        width: 100%;; 
+    }
+}
