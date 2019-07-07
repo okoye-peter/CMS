@@ -47,7 +47,8 @@ class article_upload{
             // $this->image = $fileNewName;
             global $pdo;
             #prepare query for execution
-            $query = $pdo->prepare("INSERT INTO articles(user_id, title,content,pics,categories, date_posted) VALUES(?, ?, ?, ?, ?, ?)");
+            $query = $pdo->prepare("INSERT INTO articles(user_id, title,content,pics,categories, date_posted) 
+            VALUES(?, ?, ?, ?, ?, ?)");
             # parameters to be used in query execution
             $array = array($id, $this->title, $this->content, self::$image, $this->category, time());
             #excute query
