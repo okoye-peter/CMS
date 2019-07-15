@@ -1,8 +1,6 @@
 <?php
-include "includes/classes/category_search.php";
-include "includes/classes/search_class.php";
-$cat = new category();
-$search = new search();
+include "includes/classes/categories.php";
+$cat = new categories();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -12,6 +10,7 @@ $search = new search();
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <!-- <meta http-equiv="refresh" content="2"> -->
     <title>Home Page</title>
+    <script src="js/home.js"></script>
     <script src="bootstrap/js/jquery-1.9.1.min.js"></script>
     <script src="bootstrap/js/jquery-3.3.1.slim.js"></script>
     <script src="bootstrap/js/bootstrap.min.js"></script>
@@ -20,7 +19,7 @@ $search = new search();
     <link href="bootstrap/assets/css/font-awesome.css" rel="stylesheet" />
       <!-- MORRIS CHART STYLES-->
     <link href="bootstrap/assets/js/morris/morris-0.4.3.min.css" rel="stylesheet" />
-    <link rel="stylesheet" href="css/search.css">
+    <link rel="stylesheet" href="css/home.css">
 </head>
 <body>
    <!-- navigation -->
@@ -56,7 +55,7 @@ $search = new search();
                         <select name="category" class="form-control">
                             <option value="all">all</option>
                             <?php
-                                $cat->fetch_categories();
+                                $cat->fetch_categories_searchlink();
                             ?>
                         </select>
                     </div>
@@ -73,7 +72,7 @@ $search = new search();
         </div>
     </nav>
     <!-- navigation ends -->
-
+    
     <div class="row" id="carousel_row">
         <!-- carousel begins -->
         <div class="container">
@@ -83,20 +82,14 @@ $search = new search();
                     <!-- indicators -->
                     <ol class="carousel-indicators">
                         <?php
-                            if (isset($_GET['title']) && isset($_GET['category'])) {
-                                # code...
-                                $search->carousel_indicator($_GET['title'], $_GET['category']);
-                            }
+                            $cat->carousel_indicator($_GET['cat']);
                         ?>
                     </ol>
 
                     <!-- wrapper for slide -->
                     <div class="carousel-inner">
                         <?php
-                            if (isset($_GET['title']) && $_GET['category']) {
-                                # code...
-                                $search->carousel_inner($_GET['title'], $_GET['category']);
-                            }
+                            $cat->carousel_inner($_GET['cat']);
                         ?>
 
                         <!-- Left and right controls -->
@@ -112,25 +105,20 @@ $search = new search();
                 </div>
             </div>
             <div class="col-sm-6">
-             <!-- articles begins -->
                 <div class="col-sm-12">
                     <div class="panel-group">
                         <div class="panel panel-default">
-                            <h3 class="panel-heading text-center">Results Found</h3>
+                            <h3 class="panel-heading text-center">Articles</h3>
                             <article class="panel-body">
                                 <ul id="article_links">
-                                    <?php
-                                        if (isset($_GET['title']) && isset($_GET['category'])) {
-                                            # code...
-                                            $search->fetch_searchlink($_GET['title'], $_GET['category']);
-                                        }
-                                    ?>  
+                                <?php
+                                    $cat->fetch_article($_GET['cat']);
+                                ?>
                                 </ul>
                             </article>
                         </div>
                     </div>
                 </div>
-            </div>
         </div>
     </div>
     <!-- carousel ends -->
@@ -153,4 +141,4 @@ $search = new search();
         </div>
     </div>
     <!-- contact us ends -->
-    <?php include "includes/footer.php"; ?>
+<?php include "includes/footer.php"; ?>

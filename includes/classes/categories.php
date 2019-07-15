@@ -1,26 +1,62 @@
 <?php
 include "connection.php";
-class category{
-    protected $categories;
-    protected $search_word;
 
-    public function carousel_inner(){
-        $title;
-        $image;
-        $id;
+class categories {
+    protected $cat;
+
+    public function fetch_article($cat){
+        $this->cat = $cat;
         global $pdo;
+        $query = "SELECT * FROM articles WHERE categories = '$this->cat'";
+        $query = $pdo->prepare($query);
+        $query->execute();
 
-        $query = $pdo->prepare("SELECT *  FROM articles");
+        $rowAffected =$query->rowCount();
+        if ($rowAffected > 0) {
+            //set fetch mode
+            $query->setFetchMode(PDO::FETCH_OBJ);
+            while ($row = $query->fetch()) {
+                $this->article_id = $row->id;
+                $this->title = $row->title;
+                echo "<li><a href='read.php?title=$this->title&id=$this->article_id'>$this->title</a></li>";
+            }
+        } else {
+            # code...
+            echo "Welcome to TMG";
+        }
+
+    }
+
+    public function fetch_categories_searchlink(){
+        global $pdo;
+        $query = $pdo->prepare("SELECT categories  FROM articles");
         $query->execute();
         $rowAffected =$query->rowCount();
         if ($rowAffected > 0) {
             //set fetch mode
             $query->setFetchMode(PDO::FETCH_OBJ);
-            $i = 0;
             while ($row = $query->fetch()) {
-                $image = $row->pics;
+               $this->categories = $row->categories;
+                echo "<li><a href='categories.php?cat=".$this->categories."'>$this->categories</a></li>";
+            }
+        } else {
+
+        }
+    }
+
+    public function carousel_inner($cat){
+        $this->cat = $cat;
+        global $pdo;
+        $query = "SELECT * FROM articles WHERE categories = '$this->cat'";
+        $query = $pdo->prepare($query);
+        $query->execute();
+
+        while ($row = $query->fetch(PDO::FETCH_OBJ)) {
+            # code...
+            $image = $row->pics;
                 $title = $row->title;
                 $id = $row->id;
+                $i = 0;
                 if ($i == 0) {
                     # code...
                     echo "<div class='item active'>
@@ -41,17 +77,15 @@ class category{
                         ";
                 }
                 $i++;
-            }
-        } else {
-            # code...
-            echo "Nothing was found";
         }
     }
 
-    public function carousel_indicator(){
+    public function carousel_indicator($cat){
         global $pdo;
-
-        $query = $pdo->prepare("SELECT *  FROM articles");
+        echo $cat;
+        $this->cat = $cat; 
+        $query = "SELECT * FROM articles WHERE categories = '$this->cat'";
+        $query = $pdo->prepare($query);
         $query->execute();
         $rowAffected =$query->rowCount();
         if ($rowAffected > 0) {
@@ -69,46 +103,9 @@ class category{
                 }
                 $i++;
             }
-        } else {
-            # code...
-            echo "Nothing was found";
         }
     }
 
-    public function fetch_categories(){
-        global $pdo;
-        $query = $pdo->prepare("SELECT categories  FROM articles");
-        $query->execute();
-        $rowAffected =$query->rowCount();
-        if ($rowAffected > 0) {
-            //set fetch mode
-            $query->setFetchMode(PDO::FETCH_OBJ);
-            while ($row = $query->fetch()) {
-               $this->categories = $row->categories;
-                echo "<option value='$this->categories'>$this->categories</option>";
-            }
-        } else {
-            # code...
-            echo "Nothing was found";
-        }
-    }
 
-    public function fetch_categories_searchlink(){
-        global $pdo;
-        $query = $pdo->prepare("SELECT categories  FROM articles");
-        $query->execute();
-        $rowAffected =$query->rowCount();
-        if ($rowAffected > 0) {
-            //set fetch mode
-            $query->setFetchMode(PDO::FETCH_OBJ);
-            while ($row = $query->fetch()) {
-               $this->categories = $row->categories;
-                echo "<li><a href='categories.php?cat=".$this->categories."'>$this->categories</a></li>";
-            }
-        } else {
-
-        }
-    }
 }
-
 ?>
