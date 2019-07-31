@@ -37,7 +37,7 @@ $cat = new category();
             <div class="collapse navbar-collapse" id="myNavbar">
                 <ul class="nav navbar-nav">
                     <li class="active"><a href="home.php">Home</a></li>
-                    <li class="dropdown"><a href="#">logout &nbsp;<span class="glyphicon glyphicon-log-out  "></span></a>
+                    <li class="dropdown"><a href="includes/classes/process_login.php?logout=logout">logout &nbsp;<span class="glyphicon glyphicon-log-out  "></span></a>
                 </ul>
                 <form class="navbar-form navbar-right" method="get" action="search.php">
                     <div class="form-group">
@@ -85,9 +85,6 @@ $cat = new category();
                     <h1 class="text-center">Section 1</h1>
                     <p>Try to scroll this page and look at the navigation list while scrolling!Try to scroll this page and look at the navigation list while scrolling!Try to scroll this page and look at the navigation list while scrolling!Try to scroll this page and look at the navigation list while scrolling!</p>
                 </div> 
-                <form action="includes/classes/process_login.php" method="get">
-                    <input type="submit" value="logout" name="logout" class="btn btn-danger">
-                </form>
             </nav>
             <!-- edit profile ends -->
 

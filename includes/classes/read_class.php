@@ -29,10 +29,13 @@ class read{
                 # code...
                 $name = $row1->name;
             }
-            echo "<img src='imageResize.php?image=upload/$image' ><br>";
             echo "<h3>".strtoupper($this->title)."</h3>";
             echo "<p>written by ".$name." <small>posted on ".date('j l m Y', $date)."</small></p>";
-            echo "<p> $content</p>";
+            echo "<p id='content'>
+                        <span>
+                            <img src='imageResize.php?image=upload/$image' >
+                        </span>";
+            echo "$content</p><br/>";
             echo "<a href='". $_SERVER['HTTP_REFERER']."'>&larr; back</a>";
         }
     }

@@ -3,9 +3,18 @@
 #1 change content type
 header("Content-type: image/jpeg");
 
+
 #2 check if image is set
 if(isset($_GET['image'])){
     $image = $_GET['image'];
+    // if ($image['type'] == 'jpeg' || $image['type'] == 'jpg') {
+    //     # code...
+    //     header("Content-type: image/jpeg");
+    // } else {
+    //     # code...
+    //     header("Content-type: image/png");
+    // }
+    
 #3 get image size
     $imageSize = getimagesize($image);
 

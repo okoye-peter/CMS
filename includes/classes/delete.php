@@ -12,7 +12,7 @@ class delete{
         // if (isset($this->id, $this->title)) {
             global $pdo;
             // echo "DELETE FROM articles WHERE user_id = $this->id AND title = '$this->article_title'";
-            $query = $pdo->prepare("DELETE FROM articles WHERE user_id = $this->id AND title = '$this->article'");
+            $query = $pdo->prepare("DELETE FROM articles WHERE user_id = $this->id AND title = '$this->article_title'");
             $query->execute();
         // }
     }

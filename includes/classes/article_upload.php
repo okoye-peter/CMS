@@ -18,7 +18,7 @@ class article_upload{
 
         //give image a new unique name
         $fileNewName = uniqid('',true).'.'.$file_type;
-        $extention_allowed = array('jpeg', "jpg", "png");
+        $extention_allowed = array('jpeg', "jpg");
         // check if the image type is allowed
         if(in_array($file_type, $extention_allowed)){
             //check if there is any error
@@ -48,6 +48,7 @@ class article_upload{
             global $pdo;
             #prepare query for execution
             $query = $pdo->prepare("INSERT INTO articles(user_id, title,content,pics,categories, date_posted) 
+            #constraint is trail
             VALUES(?, ?, ?, ?, ?, ?)");
             # parameters to be used in query execution
             $array = array($id, $this->title, $this->content, self::$image, $this->category, time());

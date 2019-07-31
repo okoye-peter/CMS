@@ -9,6 +9,14 @@ body{
     align-items: baseline;
 }
 
+#image{
+    object-fit: cover;
+}
+
+#image  image{
+    margin: 0px;
+    object-fit: contain;
+}
 
 .col-sm-6 .panel-group .panel .panel-body{
     text-align: justify;

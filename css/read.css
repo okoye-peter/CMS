@@ -23,12 +23,22 @@ body{
     text-align: justify;
 }
 
-.row .container img{
-    width: 60%;
-    height: 70%;
+.row .container p span{
+    height: 200px;
+    width: 200px;
 }
 
-.row .container p{
+.row .container p span img{
+    float: left;
+    margin-right: 15px;
+    object-fit: contain;
+}
+
+.row .container p#content{
     text-indent: 50px;
     line-height: 1.8;
+}
+
+img{
+
 }

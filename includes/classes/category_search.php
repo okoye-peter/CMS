@@ -23,7 +23,7 @@ class category{
                 $id = $row->id;
                 if ($i == 0) {
                     # code...
-                    echo "<div class='item active'>
+                    echo "<div id='image' class='item active'>
                             <img src='imageResize.php?image=upload/$image'>
                             <div class='carousel-caption'>
                                 <h3><a href='read.php?title=$title&id=$id'>$title</a></h3>

@@ -15,7 +15,7 @@ class login{
         $array = array("username" => $this->username);
         //execute query
         $query->execute($array);
-        echo $rowAffected = $query->rowCount();
+        $rowAffected = $query->rowCount();
         if ($rowAffected > 0) {
              //set fetch mode to object
             $query->setFetchMode(PDO::FETCH_OBJ);
@@ -30,7 +30,13 @@ class login{
                     header("location: ../../profile_page.php");
                 }
             }
-        } else {
+        }else{
+            $_SESSION['error'] = "username not recognized";
+            header("location: ../../login.php");
+        }
+
+        if ($rowAffected > 0 && $_SESSION == null) {
+            # code...
             $_SESSION['error'] = "incorrect login details";
             header("location: ../../login.php");
         }
@@ -52,14 +58,8 @@ if(isset($_POST['login'])){
     $login->login_verify($_POST['username'], $_POST['password']);
 }
 
-if ($_GET['logout']) {
-    # code...
-    $login = new login();
-    $login->logout($_SESSION['id']);
-}
-
 //logout handle
-if(isset($_POST['logout'])){
+if(isset($_GET['logout'])){
     $logout = new login();
     $logout->logout($_SESSION['id']);
 }
