@@ -1,5 +1,6 @@
 <?php
 session_start();
+error_reporting(0);
 include "includes/classes/category_search.php";
 include "includes/classes/edit.php";
 $edit = new edit();
@@ -108,7 +109,6 @@ $cat = new category();
                         </div>
                         <input type="submit" value="upload" name="upload" class="btn btn-primary">
                     </form>
-                    <br>
                 </div>
                 <div class="col-sm-5">
                     <h4>select an article the delete:</h4>
@@ -126,19 +126,26 @@ $cat = new category();
             </div>
         </div>
     </div>
-
+<br>
     <div class="row">
         <div class="container-fluid">
             <div class="col-sm-4">
-                <form class="includes/classes/edit.php">
+                <form class="includes/classes/edit.php" method="get">
                     <select name="edit_post" class="form-control" onchange="this.form.submit();">
-                        <option value="">peter</option>
+                        <option value="">choose a file to edit</option>
                         <?php
-                            $edit->fectchArticleToEdit();
+                            $edit->fectchListOfArticleToEdit();
                         ?>
                     </select>
                 </form>
             </div>
+            <div class="col-sm-8">
+            <?php
+              if (isset($_GET['edit_post'])) {
+                  # code...
+                  $edit->fectchArticleToEdit($_SESSION['id'],$_GET['edit_post']);
+              }  
+            ?>
         </div>
     </div>
 <script src="js/profile_fetch.js"></script>
