@@ -1,5 +1,7 @@
 <?php
 include "includes/classes/categories.php";
+include "includes/classes/search_class.php";
+$search = new search();
 $cat = new categories();
 ?>
 <!DOCTYPE html>
@@ -82,14 +84,14 @@ $cat = new categories();
                     <!-- indicators -->
                     <ol class="carousel-indicators">
                         <?php
-                            $cat->carousel_indicator($_GET['cat']);
+                            $search->carousel_indicator($_GET['title'], $_GET['category']);
                         ?>
                     </ol>
 
                     <!-- wrapper for slide -->
                     <div class="carousel-inner">
                         <?php
-                            $cat->carousel_inner($_GET['cat']);
+                            $search->carousel_inner($_GET['title'], $_GET['category']);
                         ?>
 
                         <!-- Left and right controls -->
@@ -112,7 +114,7 @@ $cat = new categories();
                             <article class="panel-body">
                                 <ul id="article_links">
                                 <?php
-                                    $cat->fetch_article($_GET['cat']);
+                                    $search->fetch_searchlink($_GET['title'],$_GET['category']);
                                 ?>
                                 </ul>
                             </article>

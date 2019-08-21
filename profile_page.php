@@ -1,6 +1,8 @@
 <?php
 session_start();
 include "includes/classes/category_search.php";
+include "includes/classes/edit.php";
+$edit = new edit();
 $cat = new category();
 ?>
 
@@ -113,13 +115,7 @@ $cat = new category();
                     <form action="includes/classes/delete.php" method="get">
                         <div class="form-group">
                             <select name="delete_post" class="form-control" onchange="this.form.submit();" id="delete">
-                                <option value=''>choose article to delete</option>
-                               <?php
-                                    foreach ($_SESSION['delete'] as $value) {
-                                        # code...
-                                        echo "<option value='$value'>$value</option>";
-                                    }
-                               ?>
+                               
                             </select>
                         </div>
                     </form>
@@ -131,4 +127,18 @@ $cat = new category();
         </div>
     </div>
 
+    <div class="row">
+        <div class="container-fluid">
+            <div class="col-sm-4">
+                <form class="includes/classes/edit.php">
+                    <select name="edit_post" class="form-control" onchange="this.form.submit();">
+                        <option value="">peter</option>
+                        <?php
+                            $edit->fectchArticleToEdit();
+                        ?>
+                    </select>
+                </form>
+            </div>
+        </div>
+    </div>
 <script src="js/profile_fetch.js"></script>

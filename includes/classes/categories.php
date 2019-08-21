@@ -44,6 +44,23 @@ class categories {
         }
     }
 
+        public function fetchSearchCategories(){
+            global $pdo;
+            $query = $pdo->prepare("SELECT categories  FROM articles");
+            $query->execute();
+            $rowAffected =$query->rowCount();
+            if ($rowAffected > 0) {
+                //set fetch mode
+                $query->setFetchMode(PDO::FETCH_OBJ);
+                while ($row = $query->fetch()) {
+                   $this->categories = $row->categories;
+                    echo "<option value='$this->categories'>$this->categories</option>";
+                }
+            } else {
+    
+            }
+        }
+
     public function carousel_inner($cat){
         $this->cat = $cat;
         global $pdo;

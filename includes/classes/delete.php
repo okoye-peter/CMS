@@ -22,7 +22,7 @@ if (isset($_GET['delete_post'])&& isset($_SESSION['id'])) {
     # code...
     $delete = new delete();
     $delete->delete_function($_GET['delete_post'], $_SESSION['id']);
-    // header("location: ../../profile_page.php");
+    header("location: ../../profile_page.php");
 }
 
 ?>
