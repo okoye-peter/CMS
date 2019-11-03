@@ -1,5 +1,4 @@
-<?php
-include "includes/classes/category_search.php";
+
 $cat = new category();
 ?>
 <!DOCTYPE html>
