@@ -11,7 +11,6 @@ window.onload = function(){
                 article.innerHTML = Xhttp.responseText;
             }
         }
-    
         Xhttp.open("GET", "includes/classes/profile_fetch.php", true);
         Xhttp.send();
     }
